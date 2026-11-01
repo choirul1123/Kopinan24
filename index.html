@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f7efe3">
+<title>Kopinan 24 | Klotok Solo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="top-strip"><span>GOOD COFFEE · GOOD COMPANY · GOOD TIMES</span><span>OPEN 24 HOURS</span></div>
+
+<header class="site-header">
+  <a class="wordmark" href="#home">KOPINAN 24<small>KLOTOK SOLO</small></a>
+  <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Buka navigasi">☰</button>
+  <nav class="main-nav" id="mainNav">
+    <a href="#home">Beranda</a><a href="#menu">Menu</a><a href="#meja">Meja</a><a href="#orders">Pesanan</a><a href="#event">Event</a><a href="#account">Akun</a>
+  </nav>
+  <div class="header-actions">
+    <button class="cart-header" id="openCart">🛒 <span id="cartCount">0</span></button>
+    <a class="staff-link" href="staff.html">Login Staff</a>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="hero-content">
+    <span class="eyebrow">COFFEE · FOOD · 24 HOURS</span>
+    <h1>Tempat Cerita<br>Dimulai dari <em>Kopi.</em></h1>
+    <p>Ngopi, makan, nugas, atau sekadar nongkrong bareng — semua bisa di Kopinan 24. Buka 24 jam, setiap hari.</p>
+    <div class="hero-actions"><a href="#menu" class="btn btn-brown">Lihat Menu <span>→</span></a><a href="#meja" class="btn btn-outline">Cek Meja <span>→</span></a></div>
+  </div>
+  <span class="hero-label">KLOTOK · SOLO &nbsp; / &nbsp; OPEN EVERY DAY</span>
+</section>
+
+<section class="quick-features">
+  <div class="quick-feature"><span>◷</span><div><b>Buka 24 Jam</b><small>Setiap hari</small></div></div>
+  <div class="quick-feature"><span>♧</span><div><b>Area Nyaman</b><small>Indoor, Tengah & Nongkrong</small></div></div>
+  <div class="quick-feature"><span>☕</span><div><b>Menu Lengkap</b><small>Kopi, minuman & makanan</small></div></div>
+  <div class="quick-feature"><span>♬</span><div><b>Event & Community</b><small>Nobar, live music, dan lainnya</small></div></div>
+</section>
+
+<section class="menu-section" id="menu">
+  <div class="section-heading">
+    <span class="eyebrow">OUR MENU</span>
+    <h2>Menu Favorit <em>Kami</em></h2>
+    <p>Pilih kopi, minuman, dan makanan untuk menemani waktumu.</p>
+  </div>
+  <div class="menu-toolbar">
+    <div class="menu-filters">
+      <button class="filter-chip active" data-filter="all">Semua</button>
+      <button class="filter-chip" data-filter="coffee">Kopi</button>
+      <button class="filter-chip" data-filter="noncoffee">Non Coffee</button>
+      <button class="filter-chip" data-filter="food">Makanan</button>
+    </div>
+    <input class="menu-search" id="menuSearch" type="search" placeholder="Cari menu..." aria-label="Cari menu">
+  </div>
+  <div class="menu-grid" id="menuGrid"></div>
+  <p class="menu-disclaimer">*Foto menu dan harga merupakan contoh prototipe. Sesuaikan dengan daftar menu serta harga resmi Kopinan 24.</p>
+</section>
+
+<section class="seating-section" id="meja">
+  <div class="section-heading left-heading">
+    <span class="eyebrow">TABLE AVAILABILITY</span>
+    <h2>Pilih Area & <em>Meja.</em></h2>
+    <p>Lihat meja yang kosong sebelum memesan. Pilih meja berstatus kosong untuk Dine-in.</p>
+  </div>
+  <div class="table-legend">
+    <span><i class="legend-dot available"></i>Kosong</span><span><i class="legend-dot reserved"></i>Dipesan</span><span><i class="legend-dot occupied"></i>Terisi</span><span><i class="legend-dot cleaning"></i>Perlu dibersihkan</span>
+  </div>
+  <div class="area-cards" id="customerAreas"></div>
+  <div class="selected-table-note" id="selectedTableNote">Belum memilih meja. Pilih meja kosong untuk Dine-in.</div>
+</section>
+
+<section class="story-section" id="about">
+  <div class="story-photo"></div>
+  <div class="story-copy"><span class="eyebrow">TENTANG KAMI</span><h2>Tempat Cerita Dimulai dari <em>Kopi.</em></h2><p>Kopinan 24 Klotok Solo adalah tempat untuk menikmati kopi, makanan, dan waktu bersama teman. Cocok untuk nongkrong, mengerjakan tugas, atau berkumpul kapan saja.</p><a href="https://www.google.com/maps/search/?api=1&query=Kopinan+24+Klotok+Solo" target="_blank" rel="noopener" class="text-link">Lihat Lokasi →</a></div>
+</section>
+
+<section class="event-section" id="event">
+  <div class="section-heading event-heading"><span class="eyebrow">EVENT & COMMUNITY</span><h2>Seru-seruan di <em>Kopinan 24.</em></h2><p>Tempat berkumpul, menikmati hiburan, dan berbagi momen bersama.</p></div>
+  <div class="event-cards-grid">
+    <article class="event-card promo-card"><span class="eyebrow">WATCH TOGETHER</span><h3>Nonton Bareng</h3><p>Nikmati pertandingan atau acara favorit bersama teman-teman dengan suasana ramai.</p><span class="event-meta">Info jadwal mengikuti pengumuman terbaru.</span></article>
+    <article class="event-card activity-card"><span class="eyebrow">LIVE PERFORMANCE</span><h3>Live Music</h3><p>Temani waktu nongkrong dengan penampilan musik dan suasana santai.</p><span class="event-meta">Jadwal penampilan diumumkan kemudian.</span></article>
+    <article class="event-card acoustic-card"><span class="eyebrow">COMMUNITY NIGHT</span><h3>Acoustic & Gathering</h3><p>Ruang untuk berkumpul, menikmati musik akustik, dan kegiatan komunitas.</p><span class="event-meta">Pantau informasi event sebelum berkunjung.</span></article>
+  </div>
+</section>
+
+<section class="customer-orders-section" id="orders">
+  <div class="section-heading left-heading"><span class="eyebrow">ORDER HISTORY</span><h2>Pesanan <em>Saya.</em></h2><p>Lihat status pesanan yang dibuat dari browser ini. Simpan nama dan kontak di halaman Akun agar riwayat lebih mudah dikenali.</p></div>
+  <div class="customer-orders-toolbar"><span id="ordersAccountLabel">Riwayat pesanan pelanggan</span><button class="text-link-button" id="refreshCustomerOrders">↻ Perbarui Pesanan</button></div>
+  <div class="customer-order-list" id="customerOrderList"><div class="empty-customer-state">Belum ada pesanan.</div></div>
+</section>
+
+<section class="customer-account-section" id="account">
+  <div class="section-heading left-heading"><span class="eyebrow">CUSTOMER ACCOUNT</span><h2>Akun <em>Pelanggan.</em></h2><p>Lengkapi informasi akun untuk membantu mengenali pesanan dan riwayat kunjunganmu.</p></div>
+  <div class="account-layout">
+    <form class="account-form" id="customerAccountForm">
+      <h3>Informasi Profil</h3>
+      <label>Nama lengkap<input type="text" id="accountName" required placeholder="Masukkan nama lengkap"></label>
+      <label>Email<input type="email" id="accountEmail" placeholder="nama@email.com"></label>
+      <label>Nomor WhatsApp<input type="tel" id="accountPhone" placeholder="08xxxxxxxxxx"></label>
+      <button class="btn btn-brown" type="submit">Simpan Profil</button>
+      <small>Profil disimpan pada browser yang sedang digunakan. Tidak memerlukan password untuk demo.</small>
+    </form>
+    <div class="account-summary">
+      <div class="account-avatar" id="accountAvatar">K</div>
+      <span class="eyebrow">KOPINAN CUSTOMER</span>
+      <h3 id="accountDisplayName">Pelanggan Kopinan 24</h3>
+      <p id="accountDisplayContact">Lengkapi profil untuk menyimpan informasi pelanggan.</p>
+      <div class="account-stats"><div><b id="accountOrderCount">0</b><small>Total Pesanan</small></div><div><b id="accountPaidCount">0</b><small>Pesanan Lunas</small></div></div>
+      <a href="#orders" class="text-link">Lihat Riwayat Pesanan →</a>
+    </div>
+  </div>
+</section>
+
+<section class="visit-checkout" id="visitCheckout">
+  <span class="eyebrow">SELESAI BERKUNJUNG?</span><h2>Checkout <em>Kunjungan.</em></h2>
+  <p>Setelah pesanan diantar dan kamu selesai menggunakan meja, masukkan nomor pesanan agar meja masuk antrean pembersihan.</p>
+  <div class="visit-form"><input id="visitOrderNumber" placeholder="Nomor pesanan, contoh K24-123456"><button class="btn btn-brown" id="visitCheckoutBtn">Checkout Kunjungan →</button></div>
+</section>
+
+<section class="location-section" id="location">
+  <span class="eyebrow">COME AND SAY HELLO</span><h2>Ketemu di <em>Kopinan 24.</em></h2>
+  <p>Jl. Adi Sucipto No. 4, Blulukan, Colomadu,<br>Karanganyar, Jawa Tengah.<br><b>Buka 24 Jam · Setiap Hari</b></p>
+  <a href="https://www.google.com/maps/search/?api=1&query=Kopinan+24+Klotok+Solo" target="_blank" rel="noopener" class="btn btn-cream">Buka Google Maps →</a>
+</section>
+</main>
+
+<footer class="site-footer"><a class="wordmark footer-mark" href="#home">KOPINAN 24<small>KLOTOK SOLO</small></a><p>Good coffee, good company, anytime.</p><small>© 2026 KOPINAN 24 KLOTOK SOLO</small></footer>
+
+<div class="drawer-backdrop" id="cartBackdrop"></div>
+<aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
+  <div class="drawer-header"><div><span class="eyebrow">YOUR ORDER</span><h2>Keranjang</h2></div><button id="closeCart" aria-label="Tutup">×</button></div>
+  <div class="drawer-items" id="cartItems"></div>
+  <div class="drawer-footer">
+    <div class="drawer-footer-scroll">
+    <label for="customerName">Nama pelanggan</label><input id="customerName" type="text" placeholder="Masukkan nama">
+    <label for="orderType">Tipe pesanan</label><select id="orderType"><option value="Dine-in">Dine-in</option><option value="Takeaway">Takeaway</option></select>
+    <label for="selectedTableInput">Area / meja pilihan</label><input id="selectedTableInput" type="text" readonly placeholder="Pilih meja di bagian denah">
+    <div class="customer-payment-picker">
+      <div class="customer-payment-heading"><b>Metode pembayaran</b><small>Pilih metode pembayaran, lalu tekan Bayar Sekarang.</small></div>
+      <div class="customer-payment-options" role="radiogroup" aria-label="Metode pembayaran">
+        <label class="customer-payment-option"><input type="radio" name="customerPaymentMethod" value="Tunai"><span><i>💵</i><b>Tunai</b></span></label>
+        <label class="customer-payment-option"><input type="radio" name="customerPaymentMethod" value="QRIS"><span><i>▦</i><b>QRIS</b></span></label>
+        <label class="customer-payment-option"><input type="radio" name="customerPaymentMethod" value="Debit"><span><i>💳</i><b>Debit</b></span></label>
+      </div>
+      <small class="customer-payment-note" id="customerPaymentNote">Pembayaran pada website demo ini disimulasikan. Tidak ada saldo atau rekening yang benar-benar terpotong.</small>
+    </div>
+    <div class="bill-lines">
+      <div><span>Subtotal</span><b id="billSubtotal">Rp0</b></div>
+      <div><span>Pajak simulasi (<span id="taxRateLabel">10</span>%)</span><b id="billTax">Rp0</b></div>
+      <div class="bill-grand"><span>Total pembayaran</span><b id="billGrand">Rp0</b></div>
+    </div>
+    <small class="tax-note">Tarif pajak 10% hanya nilai contoh prototipe. Sesuaikan dengan ketentuan pajak usaha sebenarnya.</small>
+    </div>
+    <button type="button" class="submit-order" id="submitOrder">Bayar Sekarang →</button>
+    <small class="demo-note">Setelah pembayaran simulasi berhasil, pesanan langsung berstatus Lunas dan masuk ke antrean Barista / Dapur.</small>
+  </div>
+</aside>
+<div class="toast" id="toast"></div>
+<script src="js/data.js"></script>
+<script src="js/common.js"></script>
+<script src="js/customer.js"></script>
+</body>
+</html>
