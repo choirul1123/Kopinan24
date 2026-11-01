@@ -158,3 +158,20 @@ html{scroll-behavior:smooth;scroll-padding-top:82px}body{margin:0;background:var
 .guide-steps b{display:block;font-size:8px;color:#5b4532}
 .guide-steps small{display:block;color:#8a7e70;font-size:7px;line-height:1.5;margin-top:4px}
 .owner-focus-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+/* Posisi keranjang di HP */
+@media (max-width: 760px) {
+    .cart-drawer {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: auto;
+        width: 90vw;
+        max-width: 380px;
+        height: 100dvh;
+        transform: translateX(105%);
+    }
+
+    .cart-drawer.show {
+        transform: translateX(0);
+    }
+}
