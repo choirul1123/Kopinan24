@@ -1,86 +1,342 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#f7efe3">
+
 <title>Staff Dashboard | Kopinan 24</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body class="staff-body">
+
+<!-- LOGIN PILIHAN STAFF -->
 <div class="role-gate" id="roleGate">
   <div class="role-gate-card">
+
     <span class="eyebrow">KOPINAN 24 · STAFF AREA</span>
+
     <h1>Login Staff</h1>
-    <p>Pilih bagian pekerjaan untuk membuka dashboard. Tidak perlu mengisi nama.</p>
+
+    <p>
+      Pilih bagian pekerjaan untuk membuka dashboard.
+      Tidak perlu mengisi nama.
+    </p>
+
     <div class="role-gate-grid">
-      <button data-enter-role="cashier"><b>Kasir</b><small>Pesanan, pembayaran & laporan</small></button>
-      <button data-enter-role="barista"><b>Barista</b><small>Antrean dan persiapan minuman</small></button>
-      <button data-enter-role="kitchen"><b>Dapur / Kitchen</b><small>Pesanan makanan & stok bahan</small></button>
-      <button data-enter-role="waiter"><b>Pelayan / Waiter</b><small>Meja, pengantaran & kebersihan</small></button>
-      <button data-enter-role="owner"><b>Owner</b><small>Laporan dan pemantauan</small></button>
+
+      <button type="button" data-enter-role="cashier">
+        <b>Kasir</b>
+        <small>Pesanan, pembayaran & laporan</small>
+      </button>
+
+      <button type="button" data-enter-role="barista">
+        <b>Barista</b>
+        <small>Antrean dan persiapan minuman</small>
+      </button>
+
+      <button type="button" data-enter-role="kitchen">
+        <b>Dapur / Kitchen</b>
+        <small>Pesanan makanan & stok bahan</small>
+      </button>
+
+      <button type="button" data-enter-role="waiter">
+        <b>Pelayan / Waiter</b>
+        <small>Meja, pengantaran & kebersihan</small>
+      </button>
+
+      <button type="button" data-enter-role="owner">
+        <b>Owner</b>
+        <small>Laporan dan pemantauan</small>
+      </button>
+
     </div>
-    <a href="index.html" class="role-gate-back">← Kembali ke halaman pelanggan</a>
+
+    <a href="index.html" class="role-gate-back">
+      ← Kembali ke halaman pelanggan
+    </a>
+
   </div>
 </div>
+
+<!-- SCRIPT LOGIN STAFF -->
 <script>
-(function(){
+(function() {
+
   const hasRole = new URLSearchParams(location.search).has("role");
   const gate = document.getElementById("roleGate");
-  if(hasRole) gate.classList.add("hidden");
-  document.querySelectorAll("[data-enter-role]").forEach(button=>{
-    button.addEventListener("click",()=>{
-      location.href="staff.html?role="+encodeURIComponent(button.dataset.enterRole);
+
+  if (hasRole) {
+    gate.classList.add("hidden");
+  }
+
+  document.querySelectorAll("[data-enter-role]").forEach(button => {
+
+    button.addEventListener("click", () => {
+
+      location.href =
+        "staff.html?role=" +
+        encodeURIComponent(button.dataset.enterRole);
+
     });
+
   });
+
 })();
 </script>
 
-<div class="staff-mobile-scrim" id="staffMobileScrim"></div>
+
+<!-- BACKDROP MENU MOBILE -->
+<div
+  class="staff-mobile-scrim"
+  id="staffMobileScrim">
+</div>
+
+
+<!-- SIDEBAR STAFF -->
 <aside class="staff-sidebar" id="staffSidebar">
-  <a class="staff-wordmark" href="index.html">KOPINAN 24<small>KLOTOK SOLO</small></a>
+
+  <a class="staff-wordmark" href="index.html">
+    KOPINAN 24
+    <small>KLOTOK SOLO</small>
+  </a>
+
   <div class="staff-divider"></div>
-  <div class="staff-identity"><div class="identity-avatar" id="roleAvatar">K</div><div><b id="staffRoleName">Tim Staff</b><small><i></i> Dashboard Aktif</small></div></div>
+
+  <div class="staff-identity">
+
+    <div class="identity-avatar" id="roleAvatar">
+      K
+    </div>
+
+    <div>
+      <b id="staffRoleName">Tim Staff</b>
+      <small>
+        <i></i> Dashboard Aktif
+      </small>
+    </div>
+
+  </div>
+
   <nav class="staff-nav" id="staffNav"></nav>
-  <div class="staff-sidebar-photo"><span>GOOD COFFEE<br>GOOD COMPANY</span></div>
+
+  <div class="staff-sidebar-photo">
+    <span>
+      GOOD COFFEE<br>
+      GOOD COMPANY
+    </span>
+  </div>
+
 </aside>
 
+
+<!-- DASHBOARD UTAMA -->
 <main class="staff-main">
+
   <header class="staff-topbar">
-    <button class="staff-mobile-toggle" id="staffMobileToggle">☰</button>
-    <div class="staff-page-title"><span class="eyebrow">KOPINAN 24 · OPERATIONS</span><h1 id="staffPageTitle">Dashboard</h1><p id="staffPageSubtitle">Kelola aktivitas harian.</p></div>
-    <div class="staff-top-actions">
-      <label class="staff-shift" id="staffShiftControl">Shift Aktif
-        <select id="activeShift"><option value="1">Shift 1 · Pagi (07.00–15.00)</option><option value="2">Shift 2 · Sore (15.00–23.00)</option><option value="3">Shift 3 · Malam (23.00–07.00)</option></select>
-      </label>
-      <button id="staffRefresh" class="icon-button" title="Refresh">↻</button>
-      <a href="index.html" class="logout-button back-customer-link">← Kembali ke Pelanggan</a>
+
+    <!-- TOMBOL MENU MOBILE -->
+    <button
+      type="button"
+      class="staff-mobile-toggle"
+      id="staffMobileToggle"
+      aria-label="Buka menu navigasi">
+      ☰
+    </button>
+
+    <!-- JUDUL DASHBOARD -->
+    <div class="staff-page-title">
+
+      <span class="eyebrow">
+        KOPINAN 24 · OPERATIONS
+      </span>
+
+      <h1 id="staffPageTitle">
+        Dashboard
+      </h1>
+
+      <p id="staffPageSubtitle">
+        Kelola aktivitas harian.
+      </p>
+
     </div>
+
+
+    <!-- KONTROL DASHBOARD -->
+    <div class="staff-top-actions">
+
+      <!-- SHIFT DAN REFRESH -->
+      <div class="staff-utility-row">
+
+        <label class="staff-shift" id="staffShiftControl">
+
+          Shift Aktif
+
+          <select id="activeShift">
+
+            <option value="1">
+              Shift 1 · Pagi (07.00–15.00)
+            </option>
+
+            <option value="2">
+              Shift 2 · Sore (15.00–23.00)
+            </option>
+
+            <option value="3">
+              Shift 3 · Malam (23.00–07.00)
+            </option>
+
+          </select>
+
+        </label>
+
+        <button
+          type="button"
+          id="staffRefresh"
+          class="icon-button"
+          title="Refresh"
+          aria-label="Perbarui dashboard">
+          ↻
+        </button>
+
+      </div>
+
+
+      <!-- KEMBALI KE PELANGGAN -->
+      <a
+        href="index.html"
+        class="logout-button back-customer-link">
+        ← Kembali ke Pelanggan
+      </a>
+
+    </div>
+
   </header>
 
+
+  <!-- KONTEN DASHBOARD -->
   <div class="staff-content">
-    <div class="staff-welcome-banner"><div><span class="eyebrow light">KLOTOK · SOLO</span><h2 id="welcomeHeading">Selamat Bekerja!</h2><p>Kelola pelayanan dengan rapi, cepat, dan ramah.</p></div><div class="banner-coffee-mark">K24</div></div>
 
-    <section class="staff-stats" id="staffStats"></section>
-    <section class="staff-workspace" id="staffWorkspace"></section>
+    <!-- BANNER -->
+    <div class="staff-welcome-banner">
 
-    <section class="staff-bottom-gallery">
-      <div class="gallery-photo"></div>
-      <div class="gallery-caption"><b>KOPINAN 24 · KLOTOK SOLO</b><span>Ngopi, makan, dan berkumpul kapan saja.</span></div>
+      <div>
+
+        <span class="eyebrow light">
+          KLOTOK · SOLO
+        </span>
+
+        <h2 id="welcomeHeading">
+          Selamat Bekerja!
+        </h2>
+
+        <p>
+          Kelola pelayanan dengan rapi, cepat, dan ramah.
+        </p>
+
+      </div>
+
+      <div class="banner-coffee-mark">
+        K24
+      </div>
+
+    </div>
+
+
+    <!-- STATISTIK -->
+    <section
+      class="staff-stats"
+      id="staffStats">
     </section>
-    <p class="staff-footnote">Prototipe sistem operasional Kopinan 24 · Tampilan responsif untuk laptop, tablet, dan HP.</p>
+
+
+    <!-- AREA DASHBOARD DINAMIS -->
+    <section
+      class="staff-workspace"
+      id="staffWorkspace">
+    </section>
+
+
+    <!-- GALERI -->
+    <section class="staff-bottom-gallery">
+
+      <div class="gallery-photo"></div>
+
+      <div class="gallery-caption">
+
+        <b>KOPINAN 24 · KLOTOK SOLO</b>
+
+        <span>
+          Ngopi, makan, dan berkumpul kapan saja.
+        </span>
+
+      </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <p class="staff-footnote">
+      Prototipe sistem operasional Kopinan 24 ·
+      Tampilan responsif untuk laptop, tablet, dan HP.
+    </p>
+
   </div>
+
 </main>
 
-<!-- Generic Modal -->
-<div class="modal-backdrop" id="staffModalBackdrop">
-  <div class="staff-modal"><div class="modal-heading"><div><span class="eyebrow">KOPINAN 24</span><h2 id="staffModalTitle">Form</h2></div><button id="staffModalClose">×</button></div><div id="staffModalBody"></div></div>
+
+<!-- MODAL -->
+<div
+  class="modal-backdrop"
+  id="staffModalBackdrop">
+
+  <div class="staff-modal">
+
+    <div class="modal-heading">
+
+      <div>
+
+        <span class="eyebrow">
+          KOPINAN 24
+        </span>
+
+        <h2 id="staffModalTitle">
+          Form
+        </h2>
+
+      </div>
+
+      <button
+        type="button"
+        id="staffModalClose"
+        aria-label="Tutup">
+        ×
+      </button>
+
+    </div>
+
+    <div id="staffModalBody"></div>
+
+  </div>
+
 </div>
+
+
+<!-- TOAST NOTIFICATION -->
 <div class="toast" id="toast"></div>
+
+
+<!-- FILE JAVASCRIPT -->
 <script src="js/data.js"></script>
 <script src="js/common.js"></script>
 <script src="js/staff.js"></script>
+
 </body>
 </html>
