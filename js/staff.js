@@ -1,4 +1,4 @@
-* staff.js - role-based kitchen/cashier/barista/waiter/owner dashboard */
+/* staff.js - role-based kitchen/cashier/barista/waiter/owner dashboard */
 (() => {
   const $ = id => document.getElementById(id);
   const role = new URLSearchParams(location.search).get("role") || "cashier";
@@ -34,7 +34,8 @@
     $("staffMobileScrim").onclick=()=>{$("staffSidebar").classList.remove("open");$("staffMobileScrim").classList.remove("show")};
     $("staffModalClose").onclick=closeModal;
     $("staffModalBackdrop").onclick=e=>{if(e.target===$("staffModalBackdrop"))closeModal()};
-    $("globalSearch").addEventListener("input",()=>{if(role==="cashier")navigate("orders")});
+    const globalSearch = $("globalSearch");
+    if(globalSearch) globalSearch.addEventListener("input",()=>{if(role==="cashier")navigate("orders")});
   }
   function navigate(page){
     activePage=page;
@@ -191,7 +192,7 @@
     const d=data();let list=d.orders;
     if(role==="barista")list=list.filter(o=>o.items.some(i=>i.category!=="food"));
     if(role==="kitchen")list=list.filter(o=>o.items.some(i=>i.category==="food"));
-    const q=$("globalSearch").value.toLowerCase().trim();if(q)list=list.filter(o=>o.number.toLowerCase().includes(q)||o.customer.toLowerCase().includes(q)||String(o.tableId).toLowerCase().includes(q));
+    const q=($("globalSearch")?.value||"").toLowerCase().trim();if(q)list=list.filter(o=>o.number.toLowerCase().includes(q)||o.customer.toLowerCase().includes(q)||String(o.tableId).toLowerCase().includes(q));
     if(role==="barista")list=list.filter(o=>o.paymentStatus==="Lunas"&&!o.drinkReady);
     if(role==="kitchen")list=list.filter(o=>o.paymentStatus==="Lunas"&&!o.foodReady);
     let mode=role==="kitchen"?"kitchen":role==="barista"?"barista":role==="waiter"?"waiter":"cashier";
@@ -360,6 +361,7 @@
     const blob=new Blob(["\ufeff"+csv],{type:"text/csv;charset=utf-8"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download=filename;a.click();URL.revokeObjectURL(url);
   }
   function renderCurrentPage(){
+    renderStats();
     if(activePage==="dashboard")renderDashboard();
     else if(activePage==="orders")renderOrdersPage();
     else if(activePage==="transactions")renderTransactionsPage();
