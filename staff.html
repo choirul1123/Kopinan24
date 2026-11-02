@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -24,10 +25,7 @@
 
     <h1>Login Staff</h1>
 
-    <p>
-      Pilih bagian pekerjaan untuk membuka dashboard.
-      Tidak perlu mengisi nama.
-    </p>
+    <p>Pilih bagian pekerjaan untuk membuka dashboard. Tidak perlu mengisi nama.</p>
 
     <div class="role-gate-grid">
 
@@ -65,13 +63,14 @@
   </div>
 </div>
 
+<!-- SCRIPT PILIHAN ROLE -->
 <script>
 (function(){
 
   const hasRole = new URLSearchParams(location.search).has("role");
   const gate = document.getElementById("roleGate");
 
-  if (hasRole) {
+  if(hasRole) {
     gate.classList.add("hidden");
   }
 
@@ -111,10 +110,7 @@
 
     <div>
       <b id="staffRoleName">Tim Staff</b>
-
-      <small>
-        <i></i> Dashboard Aktif
-      </small>
+      <small><i></i> Dashboard Aktif</small>
     </div>
 
   </div>
@@ -144,7 +140,6 @@
       ☰
     </button>
 
-
     <!-- JUDUL HALAMAN -->
     <div class="staff-page-title">
 
@@ -152,9 +147,7 @@
         KOPINAN 24 · OPERATIONS
       </span>
 
-      <h1 id="staffPageTitle">
-        Dashboard
-      </h1>
+      <h1 id="staffPageTitle">Dashboard</h1>
 
       <p id="staffPageSubtitle">
         Kelola aktivitas harian.
@@ -191,7 +184,6 @@
 
         </label>
 
-
         <button
           id="staffRefresh"
           class="icon-button"
@@ -207,9 +199,7 @@
       <a
         href="index.html"
         class="logout-button back-customer-link">
-
         ← Kembali ke Pelanggan
-
       </a>
 
     </div>
@@ -219,7 +209,6 @@
 
   <!-- ISI DASHBOARD -->
   <div class="staff-content">
-
 
     <!-- BANNER SELAMAT DATANG -->
     <div class="staff-welcome-banner">
@@ -298,20 +287,11 @@
     <div class="modal-heading">
 
       <div>
-
-        <span class="eyebrow">
-          KOPINAN 24
-        </span>
-
-        <h2 id="staffModalTitle">
-          Form
-        </h2>
-
+        <span class="eyebrow">KOPINAN 24</span>
+        <h2 id="staffModalTitle">Form</h2>
       </div>
 
-      <button id="staffModalClose">
-        ×
-      </button>
+      <button id="staffModalClose">×</button>
 
     </div>
 
