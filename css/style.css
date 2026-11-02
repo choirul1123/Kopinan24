@@ -889,3 +889,162 @@ img {
     padding: 18px 15px;
   }
 }
+
+/* ==========================================
+   FIX SIDEBAR STAFF KOPINAN 24
+   DESKTOP, LAPTOP, TABLET, DAN HP
+========================================== */
+
+/* LAPTOP DAN DESKTOP */
+@media (min-width: 761px) {
+
+  body.staff-body {
+    display: grid !important;
+    grid-template-columns: 245px minmax(0, 1fr) !important;
+    grid-template-rows: minmax(100vh, auto) !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    overflow-x: hidden !important;
+  }
+
+  /* SIDEBAR */
+  body.staff-body > .staff-sidebar {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
+    position: sticky !important;
+    inset: auto !important;
+    top: 0 !important;
+    align-self: start !important;
+    width: 245px !important;
+    max-width: 245px !important;
+    height: 100vh !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    transform: none !important;
+    z-index: 40 !important;
+    box-sizing: border-box !important;
+  }
+
+  /* KONTEN UTAMA */
+  body.staff-body > .staff-main {
+    grid-column: 2 !important;
+    grid-row: 1 !important;
+    display: block !important;
+    position: relative !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    overflow-x: clip !important;
+  }
+
+  /* AREA KONTEN */
+  .staff-body .staff-topbar,
+  .staff-body .staff-content,
+  .staff-body .staff-welcome-banner,
+  .staff-body .staff-stats,
+  .staff-body .staff-workspace,
+  .staff-body .staff-bottom-gallery {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  .staff-body .staff-stats {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .staff-body .staff-grid-2 {
+    grid-template-columns:
+      minmax(0, 1.2fr)
+      minmax(0, .8fr);
+  }
+
+  .staff-body .staff-panel,
+  .staff-body .staff-grid-2 > *,
+  .staff-body .kpi-card {
+    min-width: 0 !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .staff-body .staff-mobile-toggle {
+    display: none !important;
+  }
+}
+
+/* LAPTOP KECIL DAN TABLET */
+@media (min-width: 761px) and (max-width: 1100px) {
+
+  body.staff-body {
+    grid-template-columns: 220px minmax(0, 1fr) !important;
+  }
+
+  body.staff-body > .staff-sidebar {
+    width: 220px !important;
+    max-width: 220px !important;
+  }
+
+  .staff-body .staff-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .staff-body .staff-grid-2 {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  .staff-body .staff-topbar {
+    flex-wrap: wrap;
+  }
+}
+
+/* HP */
+@media (max-width: 760px) {
+
+  body.staff-body {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    overflow-x: hidden !important;
+  }
+
+  /* SIDEBAR MENJADI MENU GESER */
+  body.staff-body > .staff-sidebar {
+    position: fixed !important;
+    inset: 0 auto 0 0 !important;
+    width: min(285px, 88vw) !important;
+    max-width: 88vw !important;
+    height: 100dvh !important;
+    transform: translateX(-105%) !important;
+    transition: transform .25s ease !important;
+    z-index: 40 !important;
+  }
+
+  body.staff-body > .staff-sidebar.open {
+    transform: translateX(0) !important;
+  }
+
+  /* KONTEN HP MEMENUHI LAYAR */
+  body.staff-body > .staff-main {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    overflow-x: hidden !important;
+  }
+
+  .staff-body .staff-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .staff-body .staff-grid-2 {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+}
