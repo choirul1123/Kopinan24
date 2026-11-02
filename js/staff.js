@@ -1,4 +1,4 @@
-/* staff.js - role-based kitchen/cashier/barista/waiter/owner dashboard */
+* staff.js - role-based kitchen/cashier/barista/waiter/owner dashboard */
 (() => {
   const $ = id => document.getElementById(id);
   const role = new URLSearchParams(location.search).get("role") || "cashier";
@@ -34,22 +34,10 @@
     $("staffMobileScrim").onclick=()=>{$("staffSidebar").classList.remove("open");$("staffMobileScrim").classList.remove("show")};
     $("staffModalClose").onclick=closeModal;
     $("staffModalBackdrop").onclick=e=>{if(e.target===$("staffModalBackdrop"))closeModal()};
-    const globalSearch = $("globalSearch");
-    if (globalSearch) globalSearch.addEventListener("input",()=>{if(role==="cashier")navigate("orders")});
+    $("globalSearch").addEventListener("input",()=>{if(role==="cashier")navigate("orders")});
   }
   function navigate(page){
     activePage=page;
-    const pageTitles = {
-      dashboard: [info.title, info.subtitle],
-      orders: [role==="barista"?"Antrean Minuman":role==="kitchen"?"Pesanan Dapur":role==="waiter"?"Pesanan Diantar":"Pesanan Masuk", "Pantau pesanan dan perbarui status sesuai bagian kerja."],
-      reports: [role==="kitchen"?"Laporan Dapur":"Laporan Penjualan", "Lihat ringkasan kegiatan berdasarkan periode."],
-      transactions: ["Riwayat Transaksi", "Pantau transaksi yang sudah lunas."],
-      stock: ["Stok Bahan Dapur", "Kelola persediaan bahan dan kebutuhan dapur."],
-      movements: ["Barang Masuk / Keluar", "Catat penerimaan dan pemakaian bahan."],
-      tables: ["Meja & Area", "Pantau status meja di setiap area."]
-    };
-    const heading = pageTitles[page] || pageTitles.dashboard;
-    setTitle(heading[0], heading[1]);
     document.querySelectorAll(".staff-nav-item").forEach(b=>b.classList.toggle("active",b.dataset.page===page));
     $("staffSidebar").classList.remove("open");$("staffMobileScrim").classList.remove("show");
     renderCurrentPage();
@@ -203,7 +191,7 @@
     const d=data();let list=d.orders;
     if(role==="barista")list=list.filter(o=>o.items.some(i=>i.category!=="food"));
     if(role==="kitchen")list=list.filter(o=>o.items.some(i=>i.category==="food"));
-    const q=($("globalSearch")?.value || "").toLowerCase().trim();if(q)list=list.filter(o=>o.number.toLowerCase().includes(q)||o.customer.toLowerCase().includes(q)||String(o.tableId).toLowerCase().includes(q));
+    const q=$("globalSearch").value.toLowerCase().trim();if(q)list=list.filter(o=>o.number.toLowerCase().includes(q)||o.customer.toLowerCase().includes(q)||String(o.tableId).toLowerCase().includes(q));
     if(role==="barista")list=list.filter(o=>o.paymentStatus==="Lunas"&&!o.drinkReady);
     if(role==="kitchen")list=list.filter(o=>o.paymentStatus==="Lunas"&&!o.foodReady);
     let mode=role==="kitchen"?"kitchen":role==="barista"?"barista":role==="waiter"?"waiter":"cashier";
@@ -372,7 +360,6 @@
     const blob=new Blob(["\ufeff"+csv],{type:"text/csv;charset=utf-8"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download=filename;a.click();URL.revokeObjectURL(url);
   }
   function renderCurrentPage(){
-    renderStats();
     if(activePage==="dashboard")renderDashboard();
     else if(activePage==="orders")renderOrdersPage();
     else if(activePage==="transactions")renderTransactionsPage();
